@@ -1,0 +1,19 @@
+<!-- Loop over each object in the projects array -->
+{{#each posts as |project| }}
+<div class="row mb-4 project">
+  <div class="col-md-5">
+    <h2>
+      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
+      {{{get_emoji}}}
+      <a href="/project/{{project.id}}">{{project.title}}</a>
+    </h2>
+   
+    <p>Created by {{project.user.name}} on {{format_date project.date_posted}}</p>
+  </div>
+  <div class="col-md-7">
+    <p>
+      {{project.contents}}
+    </p>
+  </div>
+</div>
+{{/each}}
