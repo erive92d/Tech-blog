@@ -19,13 +19,9 @@ Posts.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     comment: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     date_posted:{
       type:DataTypes.DATE,
