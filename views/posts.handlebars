@@ -1,10 +1,18 @@
 <div class="text-center">
   <h2>{{posts.title}}</h2>
-  <p>{{{get_emoji}}}</p>
   <p>{{posts.contents}}</p>
   <p>Created by {{posts.user.name}}</p>
   <p>Posted on: {{format_date posts.date_posted}}</p>
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
+  
+{{!-- <div class="comment-area">
+
+  
+</div>
+  <form id="comment-form">
+    <label for="comment-text">Leave a comment:</label>
+    <textarea id="comment-text"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+   --}}
+
 </div>

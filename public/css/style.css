@@ -1,6 +1,20 @@
 header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
+body {
+  background:black;
+  color:white;
+}
+
+#comment-form {
+  display:flex;
+  flex-direction:column;
+ 
+}
+
+#comment-form button{
+  width: 20%;
+}
 
 .no-button {
   background: none;
