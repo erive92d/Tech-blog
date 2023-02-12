@@ -1,2 +1,3 @@
+-- Active: 1674618114510@@127.0.0.1@3306@budget_db
 DROP DATABASE IF EXISTS blog_db;
 CREATE DATABASE blog_db;

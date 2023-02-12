@@ -19,10 +19,7 @@ Posts.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    comment: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
+    
     date_posted:{
       type:DataTypes.DATE,
       allowNull:false,
