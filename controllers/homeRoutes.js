@@ -10,7 +10,7 @@ router.get('/', withAuth,async (req, res) => {
         {
           model: User,
           attributes: ['name'],
-        },
+        }
       ],
     });
 
@@ -32,7 +32,8 @@ router.get('/post/:id', async (req, res) => {
     const postData = await Posts.findByPk(req.params.id, {
       include: [
         {
-          all:true,
+          model: Comment,
+          as: ['comments']
         },
       ],
     });
@@ -49,6 +50,29 @@ router.get('/post/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+////////////////////comments
+
+// router.post('/posts/:id/comments', async (req,res)=> {
+//   try {
+//     const post = await Posts.findByPk(req.params.id);
+
+//     if(!post) {
+//       return res.status(404).send("Post not found")
+//     }
+
+//     const comment = await Comment.create({
+//       ...req.body,
+//       postId: post.id
+//     })
+
+//     res.render('posts', post, comment)
+    
+//   } catch (err) {
+    
+//   }
+// })
+
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {

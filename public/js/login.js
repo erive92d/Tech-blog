@@ -37,7 +37,6 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      alert("good")
       document.location.replace('/profile');
     } else {
       alert(response.statusText);
