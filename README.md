@@ -38,7 +38,13 @@ bcrypt,sequelize, dotenv, express, express-handlebars, express-session, mysql2
 ## Usage
 To add a screenshot, create an assets/images folder in your repository and upload your screenshot to it.
 
-![alt text](assets/images/screenshot.png)
+![Screen Shot 2023-02-12 at 10 30 21 AM](https://user-images.githubusercontent.com/110507887/218329966-58504161-d7d1-402d-b964-0c3e401e9649.png)
+
+![Screen Shot 2023-02-12 at 10 31 46 AM](https://user-images.githubusercontent.com/110507887/218330002-d169b9f6-9537-4adb-b2d3-2681ed9f4e91.png)
+
+![Screen Shot 2023-02-12 at 10 31 32 AM](https://user-images.githubusercontent.com/110507887/218330006-6aa36e6c-7005-473a-b9a1-acfb2c926cc0.png)
+
+
 
 
 
