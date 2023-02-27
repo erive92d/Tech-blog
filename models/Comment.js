@@ -20,7 +20,19 @@ Comment.init({
       model: 'posts',
       id: 'id'
     }
+  },
+  user_id: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: 'user',
+      id: 'id'
+    }
+  },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false
   }
+
 
 },
 {

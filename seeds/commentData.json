@@ -1,14 +1,17 @@
 [
   {
     "comment": "testing comment",
-    "post_id":"1"
+    "post_id":"1",
+    "name":"Sal"
   },
   {
     "comment": "testing comment2",
-    "post_id":"1"
+    "post_id":"1",
+    "name":"Josh"
   },
   {
     "comment": "testing comment3",
-    "post_id":"1"
+    "post_id":"1",
+    "name":"Amiko"
   }
 ]

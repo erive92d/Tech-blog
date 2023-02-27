@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { Comment, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req,res)=> {
@@ -9,14 +9,21 @@ router.get('/', async (req,res)=> {
 })
 
 router.post('/', withAuth, async (req,res)=> {
-    // console.log(req.body,"^^^^^^^^^^^^^^^")
     try {
+        const userData = await User.findByPk(req.session.user_id,{attributes:['name']})
+       
         const newComment = await Comment.create(
             {
                 comment: req.body.comment,
-                post_id: req.body.post_id
+                post_id: req.body.post_id,
+                name: userData.dataValues.name
+        
             }
         );
+
+        
+        console.log(userData,"{{{{{{{{{{{{{{{{{{{{{{{")
+
         console.log(newComment, "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 
           res.status(200).json(newComment);
