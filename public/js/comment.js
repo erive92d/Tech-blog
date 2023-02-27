@@ -1,14 +1,19 @@
 const formCom = document.getElementById('comment-form');
 
-const commentHandler = async (e)=> {
-    e.preventDefault()
+const commentArea = document.querySelector(".comment-area")
+const postId = commentArea.getAttribute("data-id")
+
+const commentHandler = async ()=> {
+
     const commentText = document.getElementById('comment-text').value.trim()
+   
     const result = {
-        comment: commentText
+        comment: commentText,
+        post_id: Number(postId)
     }
 
     if(commentText) {
-        const response = await fetch('/api/comments', {
+        const response = await fetch(`/api/comments/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify( result ),
@@ -17,7 +22,7 @@ const commentHandler = async (e)=> {
     
 
         if(response.ok) {
-            alert("okay")
+           document.location.reload
         } else {
             console.log("bad")
         }

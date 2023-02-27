@@ -8,13 +8,16 @@ router.get('/', async (req,res)=> {
     res.json(allComments)
 })
 
-router.post('/', async (req,res)=> {
-    console.log(req.body)
+router.post('/', withAuth, async (req,res)=> {
+    // console.log(req.body,"^^^^^^^^^^^^^^^")
     try {
-        const newComment = await Comment.create({
-            ...req.body,
-            user_id: req.session.user_id,
-          });
+        const newComment = await Comment.create(
+            {
+                comment: req.body.comment,
+                post_id: req.body.post_id
+            }
+        );
+        console.log(newComment, "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 
           res.status(200).json(newComment);
     } catch (err) {

@@ -1,0 +1,14 @@
+[
+  {
+    "comment": "testing comment",
+    "post_id":"1"
+  },
+  {
+    "comment": "testing comment2",
+    "post_id":"1"
+  },
+  {
+    "comment": "testing comment3",
+    "post_id":"1"
+  }
+]

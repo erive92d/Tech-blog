@@ -18,9 +18,10 @@ Comment.init({
     type: DataTypes.INTEGER,
     references: {
       model: 'posts',
-      key: 'id',
-    },
-  },
+      id: 'id'
+    }
+  }
+
 },
 {
     sequelize,

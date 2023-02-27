@@ -5,9 +5,13 @@
   <p>Posted on: {{format_date posts.date_posted}}</p>
   </div>
   
- <div class="comment-area">
-  {{{posts.comments}}}
-  
+ <div class="comment-area" data-id="{{posts.id}}">
+  {{#each posts.comments as |comments|}}
+  <p>
+{{comments.comment}}
+
+  </p>
+  {{/each}}
 </div>
   <form id="comment-form">
     <label for="comment-text">Leave a comment:</label>
