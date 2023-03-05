@@ -32,17 +32,7 @@ router.get('/post/:id', async (req, res) => {
     const postData = await Posts.findByPk(req.params.id, {
       include:[{model:Comment}]
     })
-    // const comments = await Comment.findByPk(req.params.id)
-
-    // const userData = await User.findByPk(req.session.user_id)
-
-    // console.log(userData,"USEDATA")
-   
-   
-    // const comment = comments.map({plain:true})
-    
-
-    // const posts = postData.map((post) => post.get({ plain: true }));
+  
     const posts = postData.get({plain:true})
     console.log(posts,'%%%%%%%%%%%%%')
 
@@ -56,27 +46,17 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
-////////////////////comments
+router.put('/profile/:id', async (req,res)=> {
+  console.log(req.body,'$$$$$$$$$$$$$$$$$')
+  try {
+    const updateFile = await Posts.update({...req.body},{where: {id: req.params.id}})
 
-// router.post('/posts/:id/comments', async (req,res)=> {
-//   try {
-//     const post = await Posts.findByPk(req.params.id);
+    res.status(200).json(updateFile)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
 
-//     if(!post) {
-//       return res.status(404).send("Post not found")
-//     }
-
-//     const comment = await Comment.create({
-//       ...req.body,
-//       postId: post.id
-//     })
-
-//     res.render('posts', post, comment)
-    
-//   } catch (err) {
-    
-//   }
-// })
 
 
 // Use withAuth middleware to prevent access to route

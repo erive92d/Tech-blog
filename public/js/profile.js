@@ -21,6 +21,34 @@ const newFormHandler = async (event) => {
   }
 };
 
+
+const updateHandler = async (event) => {
+  event.preventDefault()
+  const title = document.querySelector("#post-title").value.trim();
+  const contents = document.querySelector("#post-content").value.trim();
+
+  const id = event.target.hasAttribute("data-update")
+
+  if(id) {
+
+    let updateId = event.target.getAttribute("data-update")
+    const response = await fetch(`/profile/${updateId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify({title, contents})
+    })
+
+    if(response.ok) {
+      document.location.replace('/')
+    } else {
+      alert("bad")
+    }
+  }
+}
+
+
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
@@ -49,10 +77,17 @@ document
   .querySelector(".new-post-form")
   .addEventListener("submit", newFormHandler);
 
-document
-  .querySelector(".post-list")
-  .addEventListener("click", delButtonHandler);
+const deleteBtn = document.querySelectorAll('.deleteBtn')
 
+const updateBtn = document.querySelectorAll('.updateBtn')
+
+updateBtn.forEach((update)=> {
+  update.addEventListener("click",updateHandler)
+})
+
+deleteBtn.forEach((del)=> {
+  del.addEventListener("click",delButtonHandler)
+})
 // document
 //   .getElementById("comment-form")
 //   .addEventListener("submit", commentHandler);
