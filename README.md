@@ -1,6 +1,8 @@
 
 # Tech-Blogs
 
+LIVEURL: https://deo-techblogs.herokuapp.com/
+
 ## Description
 
 - What was your motivation?
